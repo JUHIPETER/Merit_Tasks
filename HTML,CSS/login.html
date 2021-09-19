@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+</head>
+<script>
+    function loginform(){  
+var username= document.getElementById("username").value;
+var password= document.getElementById("password").value;
+var flag = 1;
+if (username==null || username==""){  
+  alert("Name can't be blank");  
+  flag = 0;
+}else if(password.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  flag = 0;
+  }  
+}  
+</script>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class='checkbtn'>
+            <span>&#9776;</span>
+        </label>
+     <label class="logo">Train Ticket Booking</label>
+     <ul>
+         <li><a href="con-example.html">contact us</a></li>
+         <li><a id="id" href="register.html">Sign up</a></li>
+     </ul>
+    </nav>
+    <section class="main-container">
+        <div class="login">
+            <h1>Login</h1>
+            <div class="log-container">
+                <form action="home.html">
+                    <input type="text" name="username" placeholder="Username" id="username" autocomplete="off" required>
+                    <input type="password" name="password" placeholder="Password" id="password" autocomplete="off" required>
+
+                    <button type="submit" class="log-btn"onclick="loginform()">Sign In</button>
+
+                    <div class="forgot">
+                        <a href="#">Forgot Your Password?</a>
+                    </div>
+
+                    <div class="signup">
+                        <i>Don't have a account?</i> <a href="register.html">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

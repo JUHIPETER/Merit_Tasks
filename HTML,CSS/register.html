@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Register</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <section class ="main">
+    <div class="register">
+        <div class="container">
+            <div class="topic">
+                <p>Create Your Account</p>
+                <a href="login.html"> <b>SIGN IN</b></a>
+            </div>
+
+            <div class="form-btn">
+                <span onclick="Basic()">Basic Details</span>
+                <span onclick="Personal()">Personal Details</span>
+                <span onclick="Address()"> Address</span>
+                <hr id="Indicator">
+            </div>
+
+            <div class="form" id="basicdetail" style="transform: translateX(300px);">
+                <input type="text" name="username" placeholder="Username" id="username" required>
+                <input type="password" name="password" placeholder="Password" id="password" required>
+                <input type="password" name="password" placeholder="Confirm Password" id="confirmpass" required>
+
+                <select id="cars" name="cars" placeholder="Security Question">
+                    <option value="1">What is your pet name?</option>
+                    <option value="2">What is your fathers middle name?</option>
+                    <option value="3">What make was your first car or bike?</option>
+                    <option value="4">What is your favorite food?</option>
+                </select>
+                <input type="password" name="password" placeholder="Security Answer">
+                <div class="action-btns">
+                    <button type="submit">Cancel </button>
+                    <button type="submit" onclick="Validate(); ">Continue </button>
+                </div>
+
+            </div>
+            <form method="POST" onsubmit="Address(); return false;">
+                <div class="form" id="personaldetail" style="transform: translateX(0);">
+                    <input type="text" name="name" placeholder="Name" required />
+                    <input type="date" name="DOB" placeholder="Date Of Birth" required />
+
+                    <div class="action-radio">
+                        <input type="radio" name="Gender" id="male"> <label for="male">Male</label>
+                        <input type="radio" name="Gender" id="female"> <label for="female">Female</label>
+                        <input type="radio" name="Gender" id="transgender"> <label for="transgender">Transgender</label>
+                    </div>
+
+
+                    <input type="text" name="Email" placeholder="Email" required />
+                    <input type="text" name="mobile" placeholder="Mobile No" required />
+
+                    <div class="action-btns">
+                        <button type="submit" onclick="Basic();">Back </button>
+                        <button type="submit">Continue </button>
+                    </div>
+            </form>
+        </div>
+        <form action="login.html">
+            <div class="form" id="address" style="transform: translateX(0);">
+                <input type="text" name="doorno" placeholder="Flat/Door No" required>
+                <input type="text" name="street" placeholder="Street/Lane" required>
+                <input type="text" name="Pin" placeholder="PinCode" required>
+                <input type="text" name="City" placeholder="City" required>
+                <input type="text" name="State" placeholder="State" required>
+              
+
+                <div class="action-btns">
+                    <button type="submit" onclick="Personal()">Back </button>
+                    <button type="submit"><a href="login.html">Register</a></button>
+                </div>
+        </form>
+        </div>
+        </div>
+    </div>
+        </section>
+    </section>
+    <script>
+
+        var basicdetail = document.getElementById("basicdetail");
+        var personaldetail = document.getElementById("personaldetail");
+        var address = document.getElementById("address");
+        var Indicator = document.getElementById("Indicator");
+
+        Basic()
+
+        function Personal() {
+
+            personaldetail.style.display = 'block';
+            Indicator.style.transform = "translateX(100px)";
+            basicdetail.style.display = 'none';
+            address.style.display = 'none';
+        }
+
+        function Basic() {
+
+            basicdetail.style.display = 'block';
+            personaldetail.style.display = 'none';
+            address.style.display = 'none';
+            Indicator.style.transform = "translateX(0px)";
+        }
+        function Address() {
+            address.style.display = 'block';
+            basicdetail.style.display = 'none';
+            personaldetail.style.display = 'none';
+            Indicator.style.transform = "translateX(200px)";
+        }
+
+        function Validate() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmpass").value;
+            var flag = 1;
+            if (username == null || username == "" || password == null || password == "" || confirmPassword == null || confirmPassword == "") {
+                alert("Please enter the details.");
+
+                flag = 0;
+            }
+            if (password != confirmPassword) {
+                alert("Passwords do not match.");
+
+                flag = 0;
+            }
+
+            if (flag == 1) {
+                Personal();
+            }
+
+        }
+    </script>
+</body>
+
+</html>
